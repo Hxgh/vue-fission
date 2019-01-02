@@ -1,0 +1,37 @@
+/*
+    页面基本布局
+    基础布局css
+*/
+html,
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+/*
+    页面样式处理
+*/
+::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 5px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 2.5px;
+    background: #c3c3c3;
+}
+
+::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    border-radius: 10px;
+    background: transparent;
+}
