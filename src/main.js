@@ -1,31 +1,29 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import Vue from 'vue'
+import App from '@/App.vue'
+import router from '@/router'
+import store from '@/store'
 
-import iView from "iview";
-import "iview/dist/styles/iview.css";
-import "../src/style/reset.css";
-import "../src/style/layout.css";
+//element UI
+import ElementUI from 'element-ui'
+Vue.use(ElementUI)
 
-Vue.use(iView, {
-  transfer: true,
-  size: "default"
-});
+import 'normalize.css'
+import '@/assets/font/iconfont.css'
 
-Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+//阻止生产模式警告
+Vue.config.productionTip = false
 
-new Vue({
+//事件中心
+import Bus from '@/libs/bus.js'
+Vue.use(Bus)
+
+//mock
+import { mockXHR } from '../mock'
+mockXHR()
+
+window.app = new Vue({
+  el: '#app',
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
-
-router.beforeEach((to, from, next) => {
-  iView.LoadingBar.start();
-  next();
-});
-
-router.afterEach(route => {
-  iView.LoadingBar.finish();
-});
+}).$mount('#app')
